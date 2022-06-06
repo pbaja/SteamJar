@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=Game;
+Comment[en_US]=Import your games into Steam
+Comment=Import your games into Steam
+Exec=bash -c 'python "$(dirname "$1")"/run.py --gui' dummy %k
+GenericName[en_US]=
+GenericName=
+Icon=applications-games
+MimeType=
+Name[en_US]=Steam Jar
+Name=Steam Jar
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=\s--noclose
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=none
+X-KDE-SubstituteUID=false
+X-KDE-Username=
