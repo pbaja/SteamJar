@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.01] - 2022-06-06
+- Make shortcuts class case insensitive when reading steam shortcuts
+
 ## [1.0] - 2022-06-06
 - Blazing fast searching for games. It is almost immediate now.
 - Huge refactor in preparation for searching for games outside Bottles
