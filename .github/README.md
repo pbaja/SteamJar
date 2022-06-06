@@ -15,7 +15,7 @@ Tested only on Steam Deck. I made sure that I use generic paths and methods to o
 # Installation
 - Go to the Desktop mode
 - Download this repository: [Download](https://github.com/pbaja/SteamJar/archive/refs/heads/main.zip)
-- Unzip it and run by clicking on the `SteamBottles.desktop` file
+- Unzip it and run by clicking on the `SteamJar.desktop` file
 
 Note: Make sure that you have [Bottles](https://usebottles.com/) in (**flatpak version**).
 
