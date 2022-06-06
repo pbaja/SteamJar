@@ -3,6 +3,7 @@ from typing import List
 from pathlib import Path
 
 from ..game_store import GameStore
+from ..game import Game
 
 UBISOFT_CONNECT_EXEC = "UbisoftConnect.exe"
 
@@ -52,9 +53,8 @@ def list_games(container: 'GameContainer') -> List['Game']:
         games.append(Game(
             name=path.name, 
             store_id=install_id, 
-            path=path, 
-            executable=None, 
-            bottle=bottle, 
+            executable=path, 
+            container=container, 
             store=GameStore.UBISOFT_CONNECT
         ))
     return games
