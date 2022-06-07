@@ -21,7 +21,21 @@ DEFAULTS = {
     'tags': {}
 }
 
+def _get_key(data, key):
+    return data.get(key, data.get(key.lower(), DEFAULTS[key]))
+
+def _set_key(data, key, value):
+    data[key] = value
+
+def _prop(key):
+    return property(lambda self: _get_key(self._data, key), lambda self, value: _set_key(self._data, key, value))
+
 class Shortcut:
+
+    app_id = _prop('appid')
+    app_name = _prop('appname')
+    executable = _prop('Exe')
+    launch_options = _prop('LaunchOptions')
 
     def __init__(self, data: dict):
         self._data = data
@@ -54,35 +68,3 @@ class Shortcut:
         command = list(map(lambda x: f'"{x}"' if ' ' in x else x, game.command()))
         self.executable = f'"{command[0]}"'
         self.launch_options = ' '.join(command[1:])
-
-    @property
-    def app_id(self):
-        return self._data.get('appid', DEFAULTS['appid'])
-
-    @app_id.setter
-    def app_id(self, value):
-        self._data['appid'] = value
-    
-    @property
-    def app_name(self):
-        return self._data.get('appname', DEFAULTS['appname'])
-    
-    @app_name.setter
-    def app_name(self, value):
-        self._data['appname'] = value
-
-    @property
-    def executable(self):
-        return self._data.get('Exe', DEFAULTS['Exe'])
-
-    @executable.setter
-    def executable(self, value):
-        self._data['Exe'] = value
-
-    @property
-    def launch_options(self):
-        return self._data.get('LaunchOptions', DEFAULTS['LaunchOptions'])
-
-    @launch_options.setter
-    def launch_options(self, value):
-        self._data['LaunchOptions'] = value

@@ -168,7 +168,7 @@ def download_images():
 
 def save_shortcuts():
     global entries
-    user.save_shortcuts(map(lambda e: e.shortcut, entries))
+    user.save_shortcuts(map(lambda e: e.shortcut, filter(lambda x: x.enabled, entries)))
     logging.info('Shortcuts saved')
     messagebox.info('Shortcuts saved', parent=window)
 
