@@ -95,7 +95,7 @@ def reload_games(show_info=True):
     # Create entries
     global entries
     for shortcut in shortcuts:
-        if shortcut not in map(lambda e: e.shortcut, entries):
+        if shortcut.app_name not in map(lambda e: e.shortcut.app_name, entries):
             entries.append(Entry(user, shortcut, game=None, enabled=True))
             logging.debug(f'Added shortcut {shortcut.app_name}')
 

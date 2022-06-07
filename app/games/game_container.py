@@ -7,6 +7,7 @@ from .registry import registry_get_key
 from ..constants import BOTTLES_CLI_CMD
 from .game_container_kind import GameContainerKind
 
+
 @dataclass
 class GameContainer:
     # Container kind. Used to generate command
@@ -44,7 +45,7 @@ class GameContainer:
 
         return registry_get_key(self.path / 'system.reg', key)
 
-    def list_games(self) -> ['Game']:
+    def list_games(self) -> List['Game']:
         '''
         Searches for games inside this container. Returns a list of games
         '''
@@ -54,5 +55,8 @@ class GameContainer:
 
         from .stores import ubisoft
         games += ubisoft.list_games(self)
+
+        from .stores import epic
+        games += epic.list_games(self)
 
         return games

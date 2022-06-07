@@ -1,3 +1,5 @@
+import logging
+from pathlib import Path
 from typing import List
 from dataclasses import dataclass
 
@@ -26,6 +28,10 @@ class Game:
         elif self.store == GameStore.GOG_GALAXY:
             from .stores import gog
             return gog.command(self)
+        # Epic Games Launcher
+        elif self.store == GameStore.EPIC_GAMES:
+            from .stores import epic
+            return epic.command(self)
         # Unsupported
         else:
             logging.error(f"Store {self.store} is not supported yet")

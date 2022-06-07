@@ -23,7 +23,7 @@ class EntryRow(Gtk.ListBoxRow):
         box.pack_end(self._switch, False, False, 0)
 
         # Add 'Missing images' label
-        self._missing_images_label = Gtk.Label(label='')
+        self._missing_images_label = Gtk.Label(label='asd')
         self.set_missing_images_label(entry.images.any_missing())
         entry.images.missing_event.subscribe(self.set_missing_images_label)
         box.pack_end(self._missing_images_label, False, False, 0)

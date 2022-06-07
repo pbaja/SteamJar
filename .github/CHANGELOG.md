@@ -1,8 +1,7 @@
 # Changelog
 
-## [1.04] - Future
-- Add automatic tests
-- Add installer and updater
+## [1.04] - 2022-06-07
+- Add support for Epic's Game Launcher
 
 ## [1.03] - 2022-06-07
 - Improve shortcut loading and saving compatibility
