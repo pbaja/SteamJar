@@ -33,7 +33,7 @@ def run() -> bool:
 
     # Initialize and enter endless loop
     if select_user(): 
-        reload_games()
+        reload_games(False)
         Gtk.main()
     return True
 
@@ -47,7 +47,11 @@ def flush_gtk():
 
 def select_user():
     global user
+
+    # Ignore user with ID: 0
     users = steam.list_users()
+    users = filter(lambda x: x.id != 0, users)
+
     if len(users) > 1:
         # Open dialog
         dialog = SelectOptionDialog(window, users, "Select user", "Multiple users found. Select user:", lambda u: u.name)
@@ -69,7 +73,7 @@ def select_user():
         logging.error('No Steam users found! Aborting.')
         return False
 
-def reload_games():
+def reload_games(show_info=True):
     logging.info('Reloading game list...')
 
     # Get a list of game containers
@@ -115,7 +119,8 @@ def reload_games():
     window.view.add_entries(entries)
 
     # Display information
-    messagebox.info(f'Found {games_len} game{suff(games_len)} in {containers_len} container{suff(containers_len)}', parent=window)
+    if show_info:
+        messagebox.info(f'Found {games_len} game{suff(games_len)} in {containers_len} container{suff(containers_len)}', parent=window)
 
 def enable_all():
     global entries
