@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.04] - Future
+- Add automatic tests
+- Add installer and updater
+
+## [1.03] - 2022-06-07
+- Improve shortcut loading and saving compatibility
+
 ## [1.02] - 2022-06-07
 - Update window title
 - Try running in GUI mode by default

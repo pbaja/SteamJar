@@ -27,13 +27,21 @@ class Shortcut:
         self._data = data
 
     def to_dict(self):
+        # Use defaults
+        data = DEFAULTS | self._data
+        
+        # Check if lowercase version exists. If yes, use it instead of the default case version
+        keys_to_remove = []
+        for k1, v1 in data.items():
+            for k2, v2 in data.items():
+                if k1.lower() == k2 and k1 != k2:
+                    data[k2] = v1
+                    keys_to_remove.append(k1)
+        for k in keys_to_remove:
+            del data[k]
 
-        #TODO: Is this neccesary?
-        if 'exe' in self._data:
-            self._data['exe'] = self._data['Exe']
-            del self._data['Exe']
-
-        return DEFAULTS | self._data
+        # Return results
+        return data
 
     def from_game(game: Game) -> 'Shortcut':
         shortcut = Shortcut({})
