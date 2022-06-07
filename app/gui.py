@@ -50,7 +50,7 @@ def select_user():
 
     # Ignore user with ID: 0
     users = steam.list_users()
-    users = filter(lambda x: x.id != 0, users)
+    users = list(filter(lambda x: x.steam_id != 0, users))
 
     if len(users) > 1:
         # Open dialog
@@ -172,6 +172,11 @@ def download_images():
     messagebox.info(f'Downloaded {downloaded} images, {skipped} skipped.', parent=window)
 
 def save_shortcuts():
+
+    if steam.is_running():
+        messagebox.info('Steam is running. Please close it before saving shortcuts.', parent=window)
+        return None
+
     global entries
     user.save_shortcuts(map(lambda e: e.shortcut, filter(lambda x: x.enabled, entries)))
     logging.info('Shortcuts saved')
