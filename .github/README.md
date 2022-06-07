@@ -1,6 +1,11 @@
 <p align="center">
   <img width="500" alt="GUI preview screenshot" src="./preview_gui.png">
 </p>
+<p align="center">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/pbaja/SteamJar?style=flat-square">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/pbaja/SteamJar?style=flat-square">
+  <img alt="GitHub" src="https://img.shields.io/github/license/pbaja/SteamJar?style=flat-square">
+</p>
 
 # What is SteamJar
 SteamJar is a tool that helps you add all of your non-steam games to Steam.  
@@ -44,25 +49,19 @@ You can enable all by clicking on the `Enable all` button
 
 ## Roadmap
 Things to do, sorted by priority.  
-  
-- [x] Adding games from GOG Galaxy
-- [x] Graphical user interface
-- [x] Downloading missing grid images
-- [x] Improve registry access performance
-- [ ] Add simpler installation method
-- [x] Adding games from Ubisoft Connect
-- [ ] Adding games from Epic Launcher
-- [ ] Adding games from Origin
-- [ ] Code cleanup and documentation (types)
-- [ ] Ability to edit shortcuts
-- [ ] Ability to change images when editing
-- [ ] Tests
-- [ ] Juicify GUI - icons, tooltips, padding
-- [ ] Adding standalone games
-- [ ] Backing up your shortcuts, multiple sets?
+- Add simpler installation method
+- Adding games from Origin
+- Code cleanup and documentation (types)
+- Ability to edit shortcuts
+- Ability to change images when editing
+- Tests
+- Juicify GUI - icons, tooltips, padding
+- Adding standalone games
+- Backing up your shortcuts, multiple sets?
 
 ### Extra
-There is also a command line interface: `python run.py`. You can use it remotely via ssh.  
-To run GUI version from terminal add `--gui` flag.  
+There are two commandline options:
+ - `--cli` - Forces the use of a CLI interface
+ - `--gui` - Forces the use of a GUI interface. It will fall back to CLI if GUI fails.
   
 <img width="300" alt="GUI preview screenshot" src="./preview_cli.png">
