@@ -93,13 +93,13 @@ def reload_games():
     for shortcut in shortcuts:
         if shortcut not in map(lambda e: e.shortcut, entries):
             entries.append(Entry(user, shortcut, game=None, enabled=True))
-            logging.debug(f'Added shortcut {shortcut.appname}')
+            logging.debug(f'Added shortcut {shortcut.app_name}')
 
     # Create or update entries from games
     for game in games:
         # Search for existing shortcut by game name
         for entry in entries:
-            if entry.shortcut.appname == game.name:
+            if entry.shortcut.app_name == game.name:
                 entry.game = game
                 entry.shortcut.update_from_game(game)
                 logging.debug(f'Updated game {game.name}')
@@ -143,7 +143,7 @@ def download_images():
 
             # Select game
             if len(results) == 0:
-                logging.info(f"No results for {entry.shortcut.appname}")
+                logging.info(f"No results for {entry.shortcut.app_name}")
                 continue
             elif len(results) == 1:
                 game_id = results[0].id

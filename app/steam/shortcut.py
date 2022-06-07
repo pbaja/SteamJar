@@ -1,41 +1,80 @@
-import random, re
-from dataclasses import dataclass, asdict, field
+import random
 from ..games.game import Game
 
-@dataclass
+DEFAULTS = {
+    'appid': 0,
+    'appname': '',
+    'Exe': '',
+    'StartDir': '',
+    'icon': '',
+    'ShortcutPath': '',
+    'LaunchOptions': '',
+    'IsHidden': 0,
+    'AllowDesktopConfig': 0,
+    'AllowOverlay': 0,
+    'openvr': 0,
+    'Devkit': 0,
+    'DevkitGameID': '',
+    'DevkitOverrideAppID': 0,
+    'LastPlayTime': 0,
+    'FlatpakAppID': '',
+    'tags': {}
+}
+
 class Shortcut:
-    appid: int
-    appname: str
-    exe: str = ''
-    start_dir: str = ''
-    icon: str = ''
-    shortcut_path: str = ''
-    launch_options: str = ''
-    is_hidden: int = 0
-    allow_desktop_config: int = 1
-    allow_overlay: int = 1
-    openvr: int = 0
-    devkit: int = 0
-    devkit_game_id: str = 0
-    devkit_override_app_id: int = 0
-    last_play_time: int = 0   # Unix timestamp when last launched. Never if 0.
-    flatpak_app_id: str = ''
-    tags: dict = field(default_factory = lambda: ({}))
 
-    def to_dict(self) -> None:
-        return asdict(self)
+    def __init__(self, data: dict):
+        self._data = data
 
-    def from_dict(data: dict) -> 'Shortcut':
-        pattern = re.compile(r'(?<!^)(?=[A-Z])')
-        snake_data = {pattern.sub('_', k).lower().replace('i_d', 'id'): v for k, v in data.items()}
-        return Shortcut(**snake_data)
+    def to_dict(self):
+
+        #TODO: Is this neccesary?
+        if 'exe' in self._data:
+            self._data['exe'] = self._data['Exe']
+            del self._data['Exe']
+
+        return DEFAULTS | self._data
 
     def from_game(game: Game) -> 'Shortcut':
-        shortcut = Shortcut(appid = random.randint(0xB0000000, 0xFFFFFFFF), appname = game.name)
+        shortcut = Shortcut({})
+        shortcut.app_id = random.randint(0xB0000000, 0xFFFFFFFF)
+        shortcut.app_name = game.name
         shortcut.update_from_game(game)
         return shortcut
 
     def update_from_game(self, game: Game):
         command = list(map(lambda x: f'"{x}"' if ' ' in x else x, game.command()))
-        self.Exe = f'"{command[0]}"'
-        self.LaunchOptions = ' '.join(command[1:])
+        self.executable = f'"{command[0]}"'
+        self.launch_options = ' '.join(command[1:])
+
+    @property
+    def app_id(self):
+        return self._data.get('appid', DEFAULTS['appid'])
+
+    @app_id.setter
+    def app_id(self, value):
+        self._data['appid'] = value
+    
+    @property
+    def app_name(self):
+        return self._data.get('appname', DEFAULTS['appname'])
+    
+    @app_name.setter
+    def app_name(self, value):
+        self._data['appname'] = value
+
+    @property
+    def executable(self):
+        return self._data.get('Exe', DEFAULTS['Exe'])
+
+    @executable.setter
+    def executable(self, value):
+        self._data['Exe'] = value
+
+    @property
+    def launch_options(self):
+        return self._data.get('LaunchOptions', DEFAULTS['LaunchOptions'])
+
+    @launch_options.setter
+    def launch_options(self, value):
+        self._data['LaunchOptions'] = value

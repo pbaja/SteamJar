@@ -25,10 +25,10 @@ class EntryImages:
         path.mkdir(parents=True, exist_ok=True)
 
         self.paths = ImagePaths(
-            hero = path / f'{entry.shortcut.appid}_hero.png',
-            logo = path / f'{entry.shortcut.appid}_logo.png',
-            wide = path / f'{entry.shortcut.appid}.png',
-            port = path / f'{entry.shortcut.appid}p.png'
+            hero = path / f'{entry.shortcut.app_id}_hero.png',
+            logo = path / f'{entry.shortcut.app_id}_logo.png',
+            wide = path / f'{entry.shortcut.app_id}.png',
+            port = path / f'{entry.shortcut.app_id}p.png'
         )
 
     def any_missing(self) -> bool:
@@ -36,7 +36,7 @@ class EntryImages:
 
     def search_game(self) -> List[int]:
         # Search for game
-        return steamgriddb.search(self.entry.shortcut.appname)
+        return steamgriddb.search(self.entry.shortcut.app_name)
 
     def download_missing(self, game_id):
         # Download images

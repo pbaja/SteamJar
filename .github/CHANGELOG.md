@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.02] - 2022-06-07
+- Update window title
+- Try running in GUI mode by default
+- Disable terminal when running via SteamJar.desktop file
+- Many small improvements in CLI
+- Refactor how we store shortcuts to improve compatibility
+
 ## [1.01] - 2022-06-06
 - Make shortcuts class case insensitive when reading steam shortcuts
 

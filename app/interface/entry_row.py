@@ -12,7 +12,7 @@ class EntryRow(Gtk.ListBoxRow):
         box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         
         # Add label
-        self._label = Gtk.Label(entry.shortcut.appname)
+        self._label = Gtk.Label(entry.shortcut.app_name)
         box.pack_start(self._label, False, False, 0)
 
         # Add switch

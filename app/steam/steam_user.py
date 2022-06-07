@@ -39,8 +39,8 @@ class SteamUser:
         user_shortcuts_path = self.path / 'config' / 'shortcuts.vdf'
         if user_shortcuts_path.exists():
             data = vdf.load(user_shortcuts_path)
-            for shortcut in data['shortcuts'].values():
-                shortcuts.append(Shortcut.from_dict(shortcut))
+            for shortcut_dict in data['shortcuts'].values():
+                shortcuts.append(Shortcut(shortcut_dict))
         return shortcuts
 
     def save_shortcuts(self, shortcuts: List[Shortcut]) -> None:

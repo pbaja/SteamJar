@@ -28,19 +28,32 @@ def run():
     user = None
     if len(users) == 1:
         user = users[0]
+        logging.info(f'Auto selected user: {user.name}')
     elif len(users) == 0:
         logging.info('No steam users found! Aborting.')
-        return None
+        return False
     else:
+        # Display users
         logging.info("Multiple users. Select user:")
-        for idx, user in enumerate(users):
-            logging.info(f" - {idx}: {user.name}")
-        answer = input("Answer (0, 1, 2...): ")
-        if len(answer) == 0:
-            user = users[0]
-        else:
-            user = users[int(answer)]
-    logging.info(f'Selected user: {user.name}')
+        for idx, u in enumerate(users):
+            logging.info(f" - {idx}: {u.name}")
+        
+        # Select user
+        while user == None:
+
+            # Get answer
+            answer = input("Answer (0, 1, 2...): ")
+            if answer.isdigit():
+                answer = int(answer)
+                if answer >= 0 and answer < len(users):
+                    user = users[answer]
+                    logging.info(f'Selected user: {user.name}')
+                    break
+                else:
+                    logging.info(f'Type a number between 0 and {len(users)-1}')
+            else:
+                logging.info(f'No answer, exiting.')
+                return False
 
     # Load user shortcuts
     shortcuts = user.load_shortcuts()
@@ -51,7 +64,7 @@ def run():
     for game in games:
         # Search for existing shortcut by game name
         for shortcut in shortcuts:
-            if shortcut.appname == game.name:
+            if shortcut.app_name == game.name:
                 shortcut.update_from_game(game)
                 entries.append(Entry(user, shortcut, game=game, enabled=True))
                 break
@@ -67,27 +80,27 @@ def run():
     # Wait for steam to close
     while steam.is_running():
         logging.info("Steam is running. Please close it to save shortcuts.")
-        answer = input("Press Enter to retry or type `quit` to abort...").lower()
+        answer = input("Press Enter to retry or type `quit` or `q` to exit: ").lower()
         if answer == 'force':
             logging.warn('Ignoring running steam. This is not recommended!')
             break
-        elif answer == 'quit' or 'q':
+        elif answer == 'quit' or answer == 'q':
             return
     
     # Print the shortcuts
     logging.info('Resulting shortcuts:')
     for entry in entries:
         shortcut = entry.shortcut
-        exe = '...' if len(shortcut.Exe) > 16 else ''
-        exe += shortcut.Exe[-16:].strip('"')
-        opts = '...' if len(shortcut.LaunchOptions) > 16 else ''
-        opts += shortcut.LaunchOptions[-16:].strip('"')
-        logging.info(f' - Enabled: {entry.enabled}, Name: {shortcut.appname}, Exe: {exe}, LaunchOptions: {opts}"')
+        exe = '...' if len(shortcut.executable) > 16 else ''
+        exe += shortcut.executable[-16:].strip('"')
+        opts = '...' if len(shortcut.launch_options) > 16 else ''
+        opts += shortcut.launch_options[-16:].strip('"')
+        logging.info(f' - Enabled: {entry.enabled}, Name: {shortcut.app_name}, Exe: {exe}, LaunchOptions: {opts}"')
 
     # Select if save the shortcuts
     logging.info("Save new shortcuts?")
     response = input("Answer (Yes/no): ")
-    if len(response) == 0 or response.lower() == 'y':
+    if len(response) == 0 or response.lower() == 'y' or response.lower() == 'yes':
         user.save_shortcuts(map(lambda e: e.shortcut, entries))
         logging.info("Shortcuts saved")
     else:

@@ -10,7 +10,7 @@ class Window(Gtk.Window):
     def __init__(self):
 
         # Setup window
-        super().__init__(title=f'SteamBottles v{VERSION_STR}')
+        super().__init__(title=f'SteamJar v{VERSION_STR}')
         self.connect("destroy", self.on_close)
         self.set_default_size(500, 650)
 
