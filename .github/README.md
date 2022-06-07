@@ -12,12 +12,20 @@ Additionally - when missing pictures are detected, this tool will download them 
 **Important!**  
 Tested only on Steam Deck. I made sure that I use generic paths and methods to obtain things - it should work on other systems. But this is not tested! If you encounter problems, please open an Issue 👍 
   
-# Currently supported
-## Containers
-- Bottles
-## Launchers
-- GOG Galaxy
-- Ubisoft Connect
+## Supported Containers
+|Container|Support|Note|
+|---|---|---|
+|Bottles|✅|Fully supported|
+|Steam|❌|Planned soon|
+|Wine|❌|Planned sometime in the future|
+
+## Supported Launchers
+|Launcher|Support|Note|
+|---|---|---|
+|GOG Galaxy|✅|Fully supported|
+|Ubisoft Connect|✅|Keeps running in the background after the game exits.|
+|Epic Games Store|🚧|Works in desktop mode. In game mode launches in the background.|
+|Origin|❌|Planned sometime in the future|
 
 # Installation
 - Go to the Desktop mode

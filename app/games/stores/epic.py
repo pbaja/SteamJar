@@ -30,9 +30,12 @@ def list_games(container: 'GameContainer') -> List['Game']:
     Searches for Epic Games Launcher games inside a container
     '''
 
-    manifests = container.path / 'drive_c' / 'ProgramData' / 'Epic' / 'EpicGamesLauncher' / 'Manifests'
+    # Get path to manifests
+    manifests = container.path / 'drive_c' / 'ProgramData' / 'Epic' / 'EpicGamesLauncher' / 'Data' / 'Manifests'
     if not manifests.exists():
         # Probably not installed or never run
+        logging.debug(f'Epic Games Launcher is not installed in container: {container.name}')
+        print(manifests)
         return []
 
     # Load games
