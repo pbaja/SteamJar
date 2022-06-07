@@ -12,6 +12,13 @@ Additionally - when missing pictures are detected, this tool will download them 
 **Important!**  
 Tested only on Steam Deck. I made sure that I use generic paths and methods to obtain things - it should work on other systems. But this is not tested! If you encounter problems, please open an Issue 👍 
   
+# Currently supported
+## Containers
+- Bottles
+## Launchers
+- GOG Galaxy
+- Ubisoft Connect
+
 # Installation
 - Go to the Desktop mode
 - Download this repository: [Download](https://github.com/pbaja/SteamJar/archive/refs/heads/main.zip)
@@ -21,7 +28,7 @@ Note: Make sure that you have [Bottles](https://usebottles.com/) in (**flatpak v
 
 # Usage
 - *Optionally* Press `Refresh games` button to search for games
-- Enable or disable shortcuts. Disabled shortcuts will be removed.  
+- Enable or disable shortcuts. Disabled shortcuts will be removed when saved  
 You can enable all by clicking on the `Enable all` button
 - *Optionally* Click on the `Download images` button to download missing grid images
 - Exit Steam if you haven't already
