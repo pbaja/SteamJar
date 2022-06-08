@@ -33,8 +33,8 @@ Tested only on Steam Deck. I made sure that I use generic paths and methods to o
 # Installation
 Download installer from [here](https://pbaja.me/SteamJarInstaller.desktop) or [here](https://raw.githubusercontent.com/pbaja/SteamJar/dev/SteamJarInstaller.desktop). Save the file and run it.
 
-**Manual method**
-Download the repository from [here](https://github.com/pbaja/SteamJar/archive/refs/heads/main.zip).  
+**Manual method**  
+Download the repository from [here](https://github.com/pbaja/SteamJar/archive/refs/heads/main.zip).
 Unzip it, and run by clicking on the *SteamJar.desktop* file.
 
 # Usage
