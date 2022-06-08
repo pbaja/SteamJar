@@ -31,7 +31,7 @@ Tested only on Steam Deck. I made sure that I use generic paths and methods to o
 |Origin|❌|Planned sometime in the future|
 
 # Installation
-Download installer from [here](https://pbaja.me/SteamJarInstaller.desktop) or [here](https://raw.githubusercontent.com/pbaja/SteamJar/dev/SteamJarInstaller.desktop).
+Download installer from [here](https://pbaja.me/SteamJarInstaller.desktop) or [here](https://raw.githubusercontent.com/pbaja/SteamJar/dev/SteamJarInstaller.desktop).  
 Save the file and run it by double clicking it. This will automagically download and install SteamJar into `~/SteamJar`.
 
 **Manual method**
