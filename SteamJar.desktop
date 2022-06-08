@@ -1,5 +1,4 @@
 [Desktop Entry]
-Categories=Game;
 Comment[en_US]=Import your games into Steam
 Comment=Import your games into Steam
 Exec=bash -c 'python "$(dirname "$(readlink -f "$1")")"/run.py --gui' dummy %k
@@ -7,10 +6,10 @@ GenericName[en_US]=
 GenericName=
 Icon=applications-games
 MimeType=
-Name[en_US]=Steam Jar
-Name=Steam Jar
+Name[en_US]=SteamJar
+Name=SteamJar
 Path=
-StartupNotify=true
+StartupNotify=false
 Terminal=false
 TerminalOptions=\s--noclose
 Type=Application

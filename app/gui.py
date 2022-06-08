@@ -1,4 +1,4 @@
-import gi, threading, logging
+import gi, logging, sys, subprocess
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
@@ -9,7 +9,7 @@ from .entry import Entry
 from .steam import steam
 from .steam.shortcut import Shortcut
 from .games.containers import list_containers
-from . import utils
+from . import utils, version
 
 window = None
 user = None
@@ -31,6 +31,16 @@ def run() -> bool:
     window.view.on_download_clicked(download_images)
     window.view.on_save_clicked(save_shortcuts)
     window.show_all()
+
+    # Check for updates
+    latest_version_str, latest_version = version.latest_version()
+    if latest_version >= version.VERSION:
+        msg = f'New version available v{version.VERSION_STR} -> v{latest_version_str}. \nDo you want to install it?'
+        title = f'New version available!'
+        if messagebox.yesno(msg, title, window):
+            cmd = ['konsole', '--noclose', '-e', 'bash', '-c', 'curl -s https://raw.githubusercontent.com/pbaja/SteamJar/dev/install.sh | bash']
+            subprocess.Popen(cmd)
+            sys.exit(0)
 
     # Initialize and enter endless loop
     if select_user(): 

@@ -37,7 +37,7 @@ fi
 
 # Remove old files, create new directory
 echo "-> Removing previous installation if exists"
-rm -r "$INSTALLATION_DIR"
+rm -r "$INSTALLATION_DIR" &> /dev/null
 mkdir "$INSTALLATION_DIR"
 
 # Download latest zip
@@ -64,4 +64,5 @@ rm ~/Desktop/SteamJar.desktop &> /dev/null
 ln -s "$INSTALLATION_DIR/SteamJar.desktop" ~/Desktop/SteamJar.desktop
 
 # Bye
-echo "Finished! Run by clicking on the SteamJar shortcut on your desktop"
+echo '=> Finished! Starting SteamJar'
+python "$INSTALLATION_DIR/run.py"
