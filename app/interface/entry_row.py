@@ -6,7 +6,7 @@ from ..entry import Entry
 class EntryRow(Gtk.ListBoxRow):
 
     def __init__(self, entry: Entry):
-        super().__init__()
+        super().__init__(selectable=False, activatable=False)
         
         # Create container
         box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
@@ -23,7 +23,7 @@ class EntryRow(Gtk.ListBoxRow):
         box.pack_end(self._switch, False, False, 0)
 
         # Add 'Missing images' label
-        self._missing_images_label = Gtk.Label(label='asd')
+        self._missing_images_label = Gtk.Label(label='Missing images')
         self.set_missing_images_label(entry.images.any_missing())
         entry.images.missing_event.subscribe(self.set_missing_images_label)
         box.pack_end(self._missing_images_label, False, False, 0)

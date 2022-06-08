@@ -1,7 +1,10 @@
 # Changelog
 
-## [1.04] - 2022-06-07
+## [1.04] - 2022-06-08
 - Add support for Epic's Game Launcher
+- Disable startup message box
+- Prevent user from saving if Steam is running
+- Improve GUI layout, split games by launcher
 
 ## [1.03] - 2022-06-07
 - Improve shortcut loading and saving compatibility

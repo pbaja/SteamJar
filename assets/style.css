@@ -1,3 +1,7 @@
-.header {
-    font-size: 18px;
+.store-title {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px;
+    background-color: #555;
+    color: #DDD;
 }

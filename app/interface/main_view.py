@@ -1,7 +1,9 @@
+from re import S
 from gi.repository import Gtk
 
 from .entry_row import EntryRow
-
+from .entry_list import EntryList
+from ..games.game_store import GameStore
 
 class MainView(Gtk.Box):
 
@@ -24,21 +26,21 @@ class MainView(Gtk.Box):
         self._save_button = Gtk.Button(label="Save changes")
         buttons_box.pack_start(self._save_button, True, False, 5)
 
-        # Add scrollable list box
-        self._entries_listbox = Gtk.ListBox()
-        scrolled_window = Gtk.ScrolledWindow()
-        scrolled_window.add(self._entries_listbox)
-        self.pack_start(scrolled_window, True, True, 10)
+        # Add entry list
+        self._entry_list = EntryList()
+        self.pack_start(self._entry_list, True, True, 10)
 
     def clear_entries(self):
-        for child in self._entries_listbox.get_children():
-            self._entries_listbox.remove(child)
+        self._entry_list.clear_entries()
 
     def add_entries(self, entries):
-        for entry in entries:
-            row = EntryRow(entry)
-            self._entries_listbox.add(row)
-        self._entries_listbox.show_all()
+        stores = {}
+        for e in entries:
+            s = e.game.store if e.game is not None else GameStore.UNKNOWN
+            entry_list = stores.setdefault(s, [])
+            entry_list.append(e)
+        for store, entry in stores.items():
+            self._entry_list.add_entries(store, entry)
 
     def set_buttons_enabled(self, enabled):
         self._reload_button.set_sensitive(enabled)
