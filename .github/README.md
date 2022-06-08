@@ -31,7 +31,7 @@ Tested only on Steam Deck. I made sure that I use generic paths and methods to o
 |Origin|❌|Planned sometime in the future|
 
 # Installation
-Download and run installer: <a href="ttps://raw.githubusercontent.com/pbaja/SteamJar/dev/SteamJarInstaller.desktop" download="1">Download</a><br>
+Download and run installer: <a href="https://raw.githubusercontent.com/pbaja/SteamJar/dev/SteamJarInstaller.desktop" download="1">Download</a><br>
 
 **Manual method:**
 - Go to the Desktop mode
