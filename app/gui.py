@@ -9,6 +9,7 @@ from .entry import Entry
 from .steam import steam
 from .steam.shortcut import Shortcut
 from .games.containers import list_containers
+from . import utils
 
 window = None
 user = None
@@ -36,14 +37,6 @@ def run() -> bool:
         reload_games(False)
         Gtk.main()
     return True
-
-def suff(count):
-    return 's' if count > 1 else ''
-
-def flush_gtk():
-    # This is bad. We should use signals and threading instead. Someday ;]
-    while Gtk.events_pending():
-        Gtk.main_iteration()
 
 def select_user():
     global user
@@ -77,14 +70,14 @@ def reload_games(show_info=True):
     # Get a list of game containers
     containers = list_containers()
     containers_len = len(containers)
-    logging.info(f'Found {containers_len} game container{suff(containers_len)}')
+    logging.info(f'Found {containers_len} game container{utils.suff(containers_len)}')
 
     # Get a list of games in all game containers
     games = []
     for container in containers:
         games += container.list_games()
     games_len = len(games)
-    logging.info(f'Found {games_len} game{suff(games_len)} in that container{suff(containers_len)}')
+    logging.info(f'Found {games_len} game{utils.suff(games_len)} in that container{utils.suff(containers_len)}')
 
     # Load user shortcuts
     shortcuts = user.load_shortcuts()
@@ -161,7 +154,7 @@ def download_images():
                 # Get selection
                 game_id = dialog.get_selected_value().id
                 dialog.destroy()
-                flush_gtk()
+                utils.flush_gtk()
             
             # Download images
             entry.images.download_missing(game_id)

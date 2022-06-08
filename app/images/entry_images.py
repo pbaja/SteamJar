@@ -19,6 +19,7 @@ class ImagePaths:
 class EntryImages:
     def __init__(self, entry, user) -> 'EntryImages':
         self.missing_event = Event()
+        self.status_event = Event()
         self.entry = entry
 
         path = user.path / 'config' / 'grid'
@@ -39,22 +40,30 @@ class EntryImages:
         return steamgriddb.search(self.entry.shortcut.app_name)
 
     def download_missing(self, game_id):
+
+        self.status_event.invoke('Downloading 0%')
+
         # Download images
         if not self.paths.port.exists():
             logging.info(f'Downloading portrait image')
             steamgriddb.download_grid(game_id, self.paths.port)
+        self.status_event.invoke('Downloading 25%')
 
         if not self.paths.logo.exists():
             logging.info(f'Downloading logo image')
             steamgriddb.download_logo(game_id, self.paths.logo)
+        self.status_event.invoke('Downloading 50%')
 
         if not self.paths.hero.exists():
             logging.info(f'Downloading hero image')
             steamgriddb.download_hero(game_id, self.paths.hero)
+        self.status_event.invoke('Downloading 75%')
 
         if not self.paths.wide.exists():
+            self.status_event.invoke('Downloading 25%')
             logging.info(f'Downloading wide image (using hero image)')
             shutil.copy(self.paths.hero, self.paths.wide)
         
         # Send update
+        self.status_event.invoke('Downloading 100%')
         self.missing_event.invoke(self.any_missing())

@@ -6,6 +6,7 @@
 - Prevent user from saving if Steam is running
 - Improve GUI layout, split games by launcher
 - Improve CLI experience, remove unnecessary logs
+- Added progress information when downloading images
 
 ## [1.03] - 2022-06-07
 - Improve shortcut loading and saving compatibility

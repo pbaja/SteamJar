@@ -2,6 +2,7 @@ from cgitb import enable
 from gi.repository import Gtk
 
 from ..entry import Entry
+from .. import utils
 
 class EntryRow(Gtk.ListBoxRow):
 
@@ -23,14 +24,16 @@ class EntryRow(Gtk.ListBoxRow):
         box.pack_end(self._switch, False, False, 0)
 
         # Add 'Missing images' label
-        self._missing_images_label = Gtk.Label(label='Missing images')
-        self.set_missing_images_label(entry.images.any_missing())
-        entry.images.missing_event.subscribe(self.set_missing_images_label)
-        box.pack_end(self._missing_images_label, False, False, 0)
+        self._status_label = Gtk.Label(label='Missing images')
+        self.set_status('Missing images' if entry.images.any_missing() else '')
+        entry.images.missing_event.subscribe(lambda e: self.set_status('Missing images' if e else ''))
+        entry.images.status_event.subscribe(self.set_status)
+        box.pack_end(self._status_label, False, False, 0)
 
         # Add container to row
         self.add(box)
         self.show_all()
     
-    def set_missing_images_label(self, enabled):
-        self._missing_images_label.set_label('Missing images' if enabled else '')
+    def set_status(self, status):
+        self._status_label.set_label(status)
+        utils.flush_gtk()
