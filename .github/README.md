@@ -31,11 +31,12 @@ Tested only on Steam Deck. I made sure that I use generic paths and methods to o
 |Origin|❌|Planned sometime in the future|
 
 # Installation
+Download and run installer: <a href="ttps://raw.githubusercontent.com/pbaja/SteamJar/dev/SteamJarInstaller.desktop" download="1">Download</a><br>
+
+**Manual method:**
 - Go to the Desktop mode
 - Download this repository: [Download](https://github.com/pbaja/SteamJar/archive/refs/heads/main.zip)
 - Unzip it and run by clicking on the `SteamJar.desktop` file
-
-Note: Make sure that you have [Bottles](https://usebottles.com/) in (**flatpak version**).
 
 # Usage
 - *Optionally* Press `Refresh games` button to search for games

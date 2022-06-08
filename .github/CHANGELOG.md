@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.05] - 2022-06-08
+- Add installer
+- Add new version notification
+
 ## [1.04] - 2022-06-08
 - Add support for Epic's Game Launcher
 - Disable startup message box
