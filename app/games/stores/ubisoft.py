@@ -42,7 +42,6 @@ def list_games(container: 'GameContainer') -> List['Game']:
     installs = container.registry('Software/Wow6432Node/Ubisoft/Launcher/Installs')
     if installs is None:
         # Key not found. Ubisoft Connect is not installed.
-        logging.debug(f'Ubisoft Connect is not installed in container: {container.name}')
         return []
 
     # Load games

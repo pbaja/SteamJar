@@ -5,6 +5,7 @@
 - Disable startup message box
 - Prevent user from saving if Steam is running
 - Improve GUI layout, split games by launcher
+- Improve CLI experience, remove unnecessary logs
 
 ## [1.03] - 2022-06-07
 - Improve shortcut loading and saving compatibility

@@ -48,9 +48,7 @@ def flush_gtk():
 def select_user():
     global user
 
-    # Ignore user with ID: 0
     users = steam.list_users()
-    users = list(filter(lambda x: x.steam_id != 0, users))
 
     if len(users) > 1:
         # Open dialog

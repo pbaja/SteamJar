@@ -18,11 +18,20 @@ def list_users() -> List[SteamUser]:
     users = []
     for steam_path in STEAM_PATHS:
         userdata_path = steam_path / 'userdata'
-        if userdata_path.exists():
-            for user_path in userdata_path.iterdir():
-                user_id = user_path.stem
-                if user_id.isdigit():
-                    users.append(SteamUser(int(user_id), user_path))
+        # Userdata directory does not exist. Have Steam been run at least once?
+        if not userdata_path.exists():
+            continue
+        for user_path in userdata_path.iterdir():
+            # Extract User ID from filename
+            user_id = user_path.stem
+            if not user_id.isdigit():
+                continue
+            # Ignore users with ID: 0
+            user_id = int(user_id)
+            if user_id == 0:
+                continue
+            # Add user to list
+            users.append(SteamUser(int(user_id), user_path))
     return users
 
 def is_running() -> bool:

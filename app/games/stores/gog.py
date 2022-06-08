@@ -21,7 +21,6 @@ def list_games(container: 'GameContainer') -> List['Game']:
     installs = container.registry('Software/Wow6432Node/GOG.com/Games')
     if installs is None:
         # Key not found. GOG Galaxy is not installed or has no games installed
-        logging.debug(f'GOG Galaxy is not installed or has not games in container: {container.name}')
         return []
 
     # Load games

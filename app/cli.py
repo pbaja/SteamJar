@@ -95,7 +95,7 @@ def run():
         exe += shortcut.executable[-16:].strip('"')
         opts = '...' if len(shortcut.launch_options) > 16 else ''
         opts += shortcut.launch_options[-16:].strip('"')
-        logging.info(f' - Enabled: {entry.enabled}, Name: {shortcut.app_name}, Exe: {exe}, LaunchOptions: {opts}"')
+        logging.info(f' - Name: {shortcut.app_name}, Exe: {exe}, LaunchOptions: {opts}"')
 
     # Select if save the shortcuts
     logging.info("Save new shortcuts?")
