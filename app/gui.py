@@ -34,8 +34,8 @@ def run() -> bool:
 
     # Check for updates
     latest_version_str, latest_version = version.latest_version()
-    if latest_version >= version.VERSION:
-        msg = f'New version available v{version.VERSION_STR} -> v{latest_version_str}. \nDo you want to install it?'
+    if latest_version > version.VERSION:
+        msg = f'New version available.\nv{version.VERSION_STR} -> v{latest_version_str}. \nDo you want to install it?'
         title = f'New version available!'
         if messagebox.yesno(msg, title, window):
             cmd = ['konsole', '--noclose', '-e', 'bash', '-c', 'curl -s https://raw.githubusercontent.com/pbaja/SteamJar/dev/install.sh | bash']

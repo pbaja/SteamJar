@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-BRANCH="dev"
+BRANCH="main"
 INSTALLATION_DIR=~/SteamJar
 REPOSITORY_URL="https://raw.githubusercontent.com/pbaja/SteamJar/$BRANCH"
 

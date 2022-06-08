@@ -1,8 +1,8 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Name=SteamJar
+Name=SteamJar Installer
 Exec=curl https://raw.githubusercontent.com/pbaja/SteamJar/main/install.sh | bash -s -- INTERNAL
-Icon=steamdeck-gaming-return
+Icon=applications-games
 Terminal=true
 Type=Application
 StartupNotify=false
