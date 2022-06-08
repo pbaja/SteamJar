@@ -25,7 +25,7 @@ Tested only on Steam Deck. I made sure that I use generic paths and methods to o
 ## Supported Launchers
 |Launcher|Support|Note|
 |---|---|---|
-|GOG Galaxy|✅|Fully supported|
+|GOG Galaxy|✅|Fully supported. Works great.|
 |Ubisoft Connect|✅|Keeps running in the background after the game exits.|
 |Epic Games Store|🚧|Works in desktop mode. In game mode launches in the background.|
 |Origin|❌|Planned sometime in the future|
@@ -49,6 +49,8 @@ You can enable all by clicking on the `Enable all` button
 Things to do, sorted by priority.  
 - Add simpler installation method
 - Adding games from Origin
+- Check if running games from EGS directly works / works better
+- Check if running games from UbiConnect directly works / works better
 - Code cleanup and documentation (types)
 - Ability to edit shortcuts
 - Ability to change images when editing

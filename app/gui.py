@@ -111,7 +111,7 @@ def reload_games(show_info=True):
 
     # Display information
     if show_info:
-        messagebox.info(f'Found {games_len} game{suff(games_len)} in {containers_len} container{suff(containers_len)}', parent=window)
+        messagebox.info(f'Found {games_len} game{utils.suff(games_len)} in {containers_len} container{utils.suff(containers_len)}', parent=window)
 
 def enable_all():
     global entries
