@@ -2,7 +2,8 @@
 
 # Configuration
 BRANCH="main"
-INSTALLATION_DIR=~/SteamJar
+INSTALLATION_DIR=~/.steamjar
+SHORTCUT_PATH=~/.local/share/applications/SteamJar.desktop
 REPOSITORY_URL="https://raw.githubusercontent.com/pbaja/SteamJar/$BRANCH"
 
 # Liftoff
@@ -37,6 +38,7 @@ fi
 
 # Remove old files, create new directory
 echo "-> Removing previous installation if exists"
+rm -r ~/SteamJar &> /dev/null
 rm -r "$INSTALLATION_DIR" &> /dev/null
 mkdir "$INSTALLATION_DIR"
 
@@ -58,11 +60,19 @@ echo "-> Moving files"
 mv "/tmp/SteamJar-$BRANCH"/* "$INSTALLATION_DIR"
 rm -r "/tmp/SteamJar-$BRANCH"
 
-# Link desktop shortcut
+# Link desktop shortcut. Remove old one
 echo "-> Creating desktop shortcut"
+echo "[Desktop Entry]
+Name=SteamJar
+Comment=Import your games into Steam
+Exec=python \"$INSTALLATION_DIR/run.py\"
+Icon=applications-games
+Terminal=false
+Type=Application
+Categories=Game;" > $SHORTCUT_PATH
+
 rm ~/Desktop/SteamJar.desktop &> /dev/null
-ln -s "$INSTALLATION_DIR/SteamJar.desktop" ~/Desktop/SteamJar.desktop
+ln -s $SHORTCUT_PATH ~/Desktop/SteamJar.desktop
 
 # Bye
-echo '=> Finished! Starting SteamJar'
-python "$INSTALLATION_DIR/run.py"
+echo '=> Finished! Start SteamJar by double-clicking it on your desktop.'
