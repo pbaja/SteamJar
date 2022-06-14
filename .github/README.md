@@ -49,7 +49,6 @@ You can enable all by clicking on the `Enable all` button
 
 ## Roadmap
 Things to do, sorted by priority.  
-- Add simpler installation method
 - Adding games from Origin
 - Check if running games from EGS directly works / works better
 - Check if running games from UbiConnect directly works / works better

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.06] - 2022-06-14
+- Modify installer and readme
+- Make the application use main branch when checking for updates
+
 ## [1.05] - 2022-06-08
 - Add installer
 - Add new version notification
