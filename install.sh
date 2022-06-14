@@ -23,7 +23,7 @@ fi
 latest_version=$(curl -s -f $REPOSITORY_URL/version.txt)
 if [[ "$?" -ne "0" ]]; then
     echo "-> Failed to check latest version"
-    latest_version=0
+    read
     exit 1
 else
     echo "-> Latest version: "$latest_version
@@ -33,6 +33,7 @@ fi
 # Check if a latest version is newer
 if [[ "$installed_version" -ge "$latest_version" ]]; then
     echo "-> Latest version is already installed"
+    read
     exit 0
 fi
 
@@ -47,6 +48,7 @@ echo "-> Downloading latest version..."
 curl -fsL "https://github.com/pbaja/SteamJar/archive/refs/heads/$BRANCH.zip" --output "/tmp/SteamJar.zip"
 if [[ "$?" -ne "0" ]]; then
     echo "-> Failed to download"
+    read
     exit 2
 fi
 
