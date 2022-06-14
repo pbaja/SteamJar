@@ -10,7 +10,7 @@ SteamJar is a tool that helps you add all of your non-steam games to Steam.
 It will search for games from all supported game launchers from all known sources (Bottles, Wineprefixes) and add them as a non-steam applications.
 Additionally - when missing pictures are detected, this tool will download them from SteamGridDB if you wish.
   
-**[[./download_button.png|Download Installer]](https://pbaja.me/SteamJarInstaller.desktop)**  
+**[Download Installer](https://pbaja.me/SteamJarInstaller.desktop)**  
   
 **[See Changelog](./CHANGELOG.md)**  
   
