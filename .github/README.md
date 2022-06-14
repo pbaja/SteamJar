@@ -30,7 +30,7 @@ Additionally - when missing pictures are detected, this tool will download them 
 |Origin|❌|Planned sometime in the future|
 
 # Installation
-Download installer from [here](https://pbaja.me/SteamJarInstaller.desktop) or [here](https://raw.githubusercontent.com/pbaja/SteamJar/dev/SteamJarInstaller.desktop). Save the file and run it.
+Download installer from [here](https://pbaja.me/SteamJarInstaller.desktop) or [here](https://raw.githubusercontent.com/pbaja/SteamJar/dev/SteamJarInstaller.desktop). Save the file and run it. If the file opens in the text editor - copy the file to the desktop and run it from there.
 
 **Manual method**  
 Download the repository from [here](https://github.com/pbaja/SteamJar/archive/refs/heads/main.zip).
