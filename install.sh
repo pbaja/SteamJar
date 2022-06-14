@@ -75,4 +75,6 @@ rm ~/Desktop/SteamJar.desktop &> /dev/null
 ln -s $SHORTCUT_PATH ~/Desktop/SteamJar.desktop
 
 # Bye
-echo '=> Finished! Start SteamJar by double-clicking it on your desktop.'
+echo '=> Finished! Start SteamJar by double-clicking it on your desktop'
+echo 'You can close this terminal'
+read

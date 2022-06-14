@@ -10,10 +10,9 @@ SteamJar is a tool that helps you add all of your non-steam games to Steam.
 It will search for games from all supported game launchers from all known sources (Bottles, Wineprefixes) and add them as a non-steam applications.
 Additionally - when missing pictures are detected, this tool will download them from SteamGridDB if you wish.
   
-**[See Changelog](./CHANGELOG.md)**  
+**[[./download_button.png|Download Installer]](https://pbaja.me/SteamJarInstaller.desktop)**  
   
-**Important!**  
-Tested only on Steam Deck. I made sure that I use generic paths and methods to obtain things - it should work on other systems. But this is not tested! If you encounter problems, please open an Issue 👍 
+**[See Changelog](./CHANGELOG.md)**  
   
 ## Supported Containers
 |Container|Support|Note|
@@ -35,7 +34,10 @@ Download installer from [here](https://pbaja.me/SteamJarInstaller.desktop) or [h
 
 **Manual method**  
 Download the repository from [here](https://github.com/pbaja/SteamJar/archive/refs/heads/main.zip).
-Unzip it, and run by clicking on the *SteamJar.desktop* file.
+Unzip it and run the installer by clicking on the *SteamJarInstaller.desktop* file.
+  
+**Uninstalling**  
+Just remove the `~/.steamjar` directory.
 
 # Usage
 - *Optionally* Press `Refresh games` button to search for games
