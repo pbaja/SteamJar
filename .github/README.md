@@ -18,14 +18,14 @@ Additionally - when missing pictures are detected, this tool will download them 
 |Container|Support|Note|
 |---|---|---|
 |Bottles|✅|Fully supported|
-|Steam|❌|Planned soon|
-|Wine|❌|Planned sometime in the future|
+|Steam|❌|Planned|
+|Wine|❌|Planned|
 
 ## Supported Launchers
 |Launcher|Support|Note|
 |---|---|---|
 |GOG Galaxy|✅|Fully supported. Works great.|
-|Ubisoft Connect|✅|Keeps running in the background after the game exits.|
+|Ubisoft Connect|✅|Fully supported.|
 |Epic Games Store|🚧|Works in desktop mode. In game mode launches in the background.|
 |Origin|❌|Planned sometime in the future|
 
